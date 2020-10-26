@@ -35,12 +35,23 @@
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonWarn = new System.Windows.Forms.Button();
             this.buttonErr = new System.Windows.Forms.Button();
-            this.buttonScrolledTextModeless = new System.Windows.Forms.Button();
             this.buttonExc = new System.Windows.Forms.Button();
             this.buttonExc1 = new System.Windows.Forms.Button();
+            this.buttonScrolledTextModeless = new System.Windows.Forms.Button();
+            this.buttonScrolledTextModal = new System.Windows.Forms.Button();
+            this.buttonOk = new System.Windows.Forms.Button();
+            this.buttonOkCancel = new System.Windows.Forms.Button();
+            this.buttonAbortRetryIgnore = new System.Windows.Forms.Button();
+            this.buttonYesNoCancel = new System.Windows.Forms.Button();
+            this.buttonYesNo = new System.Windows.Forms.Button();
+            this.buttonRetryCancel = new System.Windows.Forms.Button();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonQuit = new System.Windows.Forms.Button();
-            this.buttonScrolledTextModal = new System.Windows.Forms.Button();
+            this.buttonMBOk = new System.Windows.Forms.Button();
+            this.buttonMBLonger = new System.Windows.Forms.Button();
+            this.buttonMBLong = new System.Windows.Forms.Button();
+            this.buttonMessageLong = new System.Windows.Forms.Button();
+            this.buttonMessageLonger = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanelButtons.SuspendLayout();
@@ -55,20 +66,19 @@
             this.tableLayoutPanelTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelTop.Controls.Add(this.menuStrip1, 0, 0);
             this.tableLayoutPanelTop.Controls.Add(this.tableLayoutPanelButtons, 0, 1);
-            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons, 0, 5);
+            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons, 0, 2);
             this.tableLayoutPanelTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanelTop.Name = "tableLayoutPanelTop";
-            this.tableLayoutPanelTop.RowCount = 6;
+            this.tableLayoutPanelTop.RowCount = 3;
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelTop.Size = new System.Drawing.Size(1030, 302);
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelTop.Size = new System.Drawing.Size(1163, 443);
             this.tableLayoutPanelTop.TabIndex = 1;
             // 
             // menuStrip1
@@ -79,7 +89,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1030, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -116,14 +126,14 @@
             // overviewToolStripMenuItem
             // 
             this.overviewToolStripMenuItem.Name = "overviewToolStripMenuItem";
-            this.overviewToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.overviewToolStripMenuItem.Size = new System.Drawing.Size(327, 54);
             this.overviewToolStripMenuItem.Text = "Overview...";
             this.overviewToolStripMenuItem.Click += new System.EventHandler(this.OnHelpOverviewClick);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(448, 54);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(327, 54);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnHelpAboutClick);
             // 
@@ -138,18 +148,33 @@
             this.tableLayoutPanelButtons.Controls.Add(this.buttonInfo, 0, 0);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonWarn, 1, 0);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonErr, 2, 0);
-            this.tableLayoutPanelButtons.Controls.Add(this.buttonScrolledTextModeless, 0, 2);
-            this.tableLayoutPanelButtons.Controls.Add(this.buttonScrolledTextModal, 0, 2);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonExc, 0, 1);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonExc1, 1, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonScrolledTextModeless, 0, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonScrolledTextModal, 0, 2);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonOk, 0, 4);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonMBOk, 0, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonMBLonger, 2, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonMBLong, 1, 3);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonYesNo, 0, 6);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonRetryCancel, 1, 6);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonYesNoCancel, 2, 5);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonOkCancel, 0, 5);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonAbortRetryIgnore, 1, 5);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLong, 1, 4);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLonger, 2, 4);
             this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 52);
             this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
-            this.tableLayoutPanelButtons.RowCount = 3;
+            this.tableLayoutPanelButtons.RowCount = 7;
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(1024, 138);
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelButtons.Size = new System.Drawing.Size(1157, 322);
             this.tableLayoutPanelButtons.TabIndex = 4;
             // 
             // buttonInfo
@@ -157,7 +182,7 @@
             this.buttonInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonInfo.AutoSize = true;
             this.buttonInfo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonInfo.Location = new System.Drawing.Point(132, 2);
+            this.buttonInfo.Location = new System.Drawing.Point(154, 2);
             this.buttonInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInfo.Name = "buttonInfo";
             this.buttonInfo.Size = new System.Drawing.Size(72, 42);
@@ -171,7 +196,7 @@
             this.buttonWarn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonWarn.AutoSize = true;
             this.buttonWarn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonWarn.Location = new System.Drawing.Point(440, 2);
+            this.buttonWarn.Location = new System.Drawing.Point(506, 2);
             this.buttonWarn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonWarn.Name = "buttonWarn";
             this.buttonWarn.Size = new System.Drawing.Size(131, 42);
@@ -185,7 +210,7 @@
             this.buttonErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonErr.AutoSize = true;
             this.buttonErr.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonErr.Location = new System.Drawing.Point(805, 2);
+            this.buttonErr.Location = new System.Drawing.Point(916, 2);
             this.buttonErr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonErr.Name = "buttonErr";
             this.buttonErr.Size = new System.Drawing.Size(87, 42);
@@ -194,26 +219,12 @@
             this.buttonErr.UseVisualStyleBackColor = true;
             this.buttonErr.Click += new System.EventHandler(this.OnErrClick);
             // 
-            // buttonScrolledTextModeless
-            // 
-            this.buttonScrolledTextModeless.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonScrolledTextModeless.AutoSize = true;
-            this.buttonScrolledTextModeless.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonScrolledTextModeless.Location = new System.Drawing.Point(8, 94);
-            this.buttonScrolledTextModeless.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonScrolledTextModeless.Name = "buttonScrolledTextModeless";
-            this.buttonScrolledTextModeless.Size = new System.Drawing.Size(320, 42);
-            this.buttonScrolledTextModeless.TabIndex = 5;
-            this.buttonScrolledTextModeless.Text = "Scrolled Text Modeless";
-            this.buttonScrolledTextModeless.UseVisualStyleBackColor = true;
-            this.buttonScrolledTextModeless.Click += new System.EventHandler(this.OnScrolledTextClickModelessClick);
-            // 
             // buttonExc
             // 
             this.buttonExc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonExc.AutoSize = true;
             this.buttonExc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonExc.Location = new System.Drawing.Point(93, 48);
+            this.buttonExc.Location = new System.Drawing.Point(115, 48);
             this.buttonExc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExc.Name = "buttonExc";
             this.buttonExc.Size = new System.Drawing.Size(151, 42);
@@ -227,7 +238,7 @@
             this.buttonExc1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonExc1.AutoSize = true;
             this.buttonExc1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonExc1.Location = new System.Drawing.Point(379, 48);
+            this.buttonExc1.Location = new System.Drawing.Point(445, 48);
             this.buttonExc1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExc1.Name = "buttonExc1";
             this.buttonExc1.Size = new System.Drawing.Size(252, 42);
@@ -236,6 +247,118 @@
             this.buttonExc1.UseVisualStyleBackColor = true;
             this.buttonExc1.Click += new System.EventHandler(this.OnExc1Click);
             // 
+            // buttonScrolledTextModeless
+            // 
+            this.buttonScrolledTextModeless.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonScrolledTextModeless.AutoSize = true;
+            this.buttonScrolledTextModeless.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonScrolledTextModeless.Location = new System.Drawing.Point(411, 94);
+            this.buttonScrolledTextModeless.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonScrolledTextModeless.Name = "buttonScrolledTextModeless";
+            this.buttonScrolledTextModeless.Size = new System.Drawing.Size(320, 42);
+            this.buttonScrolledTextModeless.TabIndex = 5;
+            this.buttonScrolledTextModeless.Text = "Scrolled Text Modeless";
+            this.buttonScrolledTextModeless.UseVisualStyleBackColor = true;
+            this.buttonScrolledTextModeless.Click += new System.EventHandler(this.OnScrolledTextClickModelessClick);
+            // 
+            // buttonScrolledTextModal
+            // 
+            this.buttonScrolledTextModal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonScrolledTextModal.AutoSize = true;
+            this.buttonScrolledTextModal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonScrolledTextModal.Location = new System.Drawing.Point(52, 94);
+            this.buttonScrolledTextModal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonScrolledTextModal.Name = "buttonScrolledTextModal";
+            this.buttonScrolledTextModal.Size = new System.Drawing.Size(276, 42);
+            this.buttonScrolledTextModal.TabIndex = 11;
+            this.buttonScrolledTextModal.Text = "Scrolled Text Modal";
+            this.buttonScrolledTextModal.UseVisualStyleBackColor = true;
+            this.buttonScrolledTextModal.Click += new System.EventHandler(this.OnScrolledTextClickModalClick);
+            // 
+            // buttonOk
+            // 
+            this.buttonOk.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonOk.AutoSize = true;
+            this.buttonOk.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonOk.Location = new System.Drawing.Point(96, 186);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(188, 42);
+            this.buttonOk.TabIndex = 12;
+            this.buttonOk.Text = "Message OK";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.OnMessageOkClick);
+            // 
+            // buttonOkCancel
+            // 
+            this.buttonOkCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonOkCancel.AutoSize = true;
+            this.buttonOkCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonOkCancel.Location = new System.Drawing.Point(52, 232);
+            this.buttonOkCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonOkCancel.Name = "buttonOkCancel";
+            this.buttonOkCancel.Size = new System.Drawing.Size(277, 42);
+            this.buttonOkCancel.TabIndex = 13;
+            this.buttonOkCancel.Text = "Message OKCancel";
+            this.buttonOkCancel.UseVisualStyleBackColor = true;
+            this.buttonOkCancel.Click += new System.EventHandler(this.OnMessageOkCancelClick);
+            // 
+            // buttonAbortRetryIgnore
+            // 
+            this.buttonAbortRetryIgnore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAbortRetryIgnore.AutoSize = true;
+            this.buttonAbortRetryIgnore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAbortRetryIgnore.Location = new System.Drawing.Point(390, 232);
+            this.buttonAbortRetryIgnore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAbortRetryIgnore.Name = "buttonAbortRetryIgnore";
+            this.buttonAbortRetryIgnore.Size = new System.Drawing.Size(362, 42);
+            this.buttonAbortRetryIgnore.TabIndex = 14;
+            this.buttonAbortRetryIgnore.Text = "Message AbortRetryIgnore";
+            this.buttonAbortRetryIgnore.UseVisualStyleBackColor = true;
+            this.buttonAbortRetryIgnore.Click += new System.EventHandler(this.OnMessageAbortRetryIgnoreClick);
+            // 
+            // buttonYesNoCancel
+            // 
+            this.buttonYesNoCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonYesNoCancel.AutoSize = true;
+            this.buttonYesNoCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonYesNoCancel.Location = new System.Drawing.Point(799, 232);
+            this.buttonYesNoCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonYesNoCancel.Name = "buttonYesNoCancel";
+            this.buttonYesNoCancel.Size = new System.Drawing.Size(321, 42);
+            this.buttonYesNoCancel.TabIndex = 15;
+            this.buttonYesNoCancel.Text = "Message YesNoCancel";
+            this.buttonYesNoCancel.UseVisualStyleBackColor = true;
+            this.buttonYesNoCancel.Click += new System.EventHandler(this.OnMessageYesNoCancelClick);
+            // 
+            // buttonYesNo
+            // 
+            this.buttonYesNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonYesNo.AutoSize = true;
+            this.buttonYesNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonYesNo.Location = new System.Drawing.Point(74, 278);
+            this.buttonYesNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonYesNo.Name = "buttonYesNo";
+            this.buttonYesNo.Size = new System.Drawing.Size(232, 42);
+            this.buttonYesNo.TabIndex = 17;
+            this.buttonYesNo.Text = "Message YesNo";
+            this.buttonYesNo.UseVisualStyleBackColor = true;
+            this.buttonYesNo.Click += new System.EventHandler(this.OnMessageYesNoClick);
+            // 
+            // buttonRetryCancel
+            // 
+            this.buttonRetryCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonRetryCancel.AutoSize = true;
+            this.buttonRetryCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonRetryCancel.Location = new System.Drawing.Point(420, 278);
+            this.buttonRetryCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonRetryCancel.Name = "buttonRetryCancel";
+            this.buttonRetryCancel.Size = new System.Drawing.Size(303, 42);
+            this.buttonRetryCancel.TabIndex = 16;
+            this.buttonRetryCancel.Text = "Message RetryCancel";
+            this.buttonRetryCancel.UseVisualStyleBackColor = true;
+            this.buttonRetryCancel.Click += new System.EventHandler(this.OnMessageRetryCancelClick);
+            // 
             // flowLayoutPanelButtons
             // 
             this.flowLayoutPanelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -243,10 +366,10 @@
             this.flowLayoutPanelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelButtons.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanelButtons.Controls.Add(this.buttonQuit);
-            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(473, 254);
-            this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(539, 387);
+            this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 10, 3, 2);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(84, 46);
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(84, 54);
             this.flowLayoutPanelButtons.TabIndex = 0;
             this.flowLayoutPanelButtons.WrapContents = false;
             // 
@@ -264,25 +387,81 @@
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.OnFileQuitClick);
             // 
-            // buttonScrolledTextModal
+            // buttonMBOk
             // 
-            this.buttonScrolledTextModal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonScrolledTextModal.AutoSize = true;
-            this.buttonScrolledTextModal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonScrolledTextModal.Location = new System.Drawing.Point(367, 94);
-            this.buttonScrolledTextModal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonScrolledTextModal.Name = "buttonScrolledTextModal";
-            this.buttonScrolledTextModal.Size = new System.Drawing.Size(276, 42);
-            this.buttonScrolledTextModal.TabIndex = 11;
-            this.buttonScrolledTextModal.Text = "Scrolled Text Modal";
-            this.buttonScrolledTextModal.UseVisualStyleBackColor = true;
-            this.buttonScrolledTextModal.Click += new System.EventHandler(this.OnScrolledTextClickModalClick);
+            this.buttonMBOk.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMBOk.AutoSize = true;
+            this.buttonMBOk.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMBOk.Location = new System.Drawing.Point(68, 140);
+            this.buttonMBOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonMBOk.Name = "buttonMBOk";
+            this.buttonMBOk.Size = new System.Drawing.Size(244, 42);
+            this.buttonMBOk.TabIndex = 18;
+            this.buttonMBOk.Text = "Message Box OK";
+            this.buttonMBOk.UseVisualStyleBackColor = true;
+            this.buttonMBOk.Click += new System.EventHandler(this.OnMessageBoxOk);
+            // 
+            // buttonMBLonger
+            // 
+            this.buttonMBLonger.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMBLonger.AutoSize = true;
+            this.buttonMBLonger.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMBLonger.Location = new System.Drawing.Point(813, 140);
+            this.buttonMBLonger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonMBLonger.Name = "buttonMBLonger";
+            this.buttonMBLonger.Size = new System.Drawing.Size(292, 42);
+            this.buttonMBLonger.TabIndex = 18;
+            this.buttonMBLonger.Text = "Message Box Longer";
+            this.buttonMBLonger.UseVisualStyleBackColor = true;
+            this.buttonMBLonger.Click += new System.EventHandler(this.OnMessageBoxLonger);
+            // 
+            // buttonMBLong
+            // 
+            this.buttonMBLong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMBLong.AutoSize = true;
+            this.buttonMBLong.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMBLong.Location = new System.Drawing.Point(438, 140);
+            this.buttonMBLong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonMBLong.Name = "buttonMBLong";
+            this.buttonMBLong.Size = new System.Drawing.Size(267, 42);
+            this.buttonMBLong.TabIndex = 18;
+            this.buttonMBLong.Text = "Message Box Long";
+            this.buttonMBLong.UseVisualStyleBackColor = true;
+            this.buttonMBLong.Click += new System.EventHandler(this.OnMessageBoxLong);
+            // 
+            // buttonMessageLong
+            // 
+            this.buttonMessageLong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMessageLong.AutoSize = true;
+            this.buttonMessageLong.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMessageLong.Location = new System.Drawing.Point(466, 186);
+            this.buttonMessageLong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonMessageLong.Name = "buttonMessageLong";
+            this.buttonMessageLong.Size = new System.Drawing.Size(211, 42);
+            this.buttonMessageLong.TabIndex = 19;
+            this.buttonMessageLong.Text = "Message Long";
+            this.buttonMessageLong.UseVisualStyleBackColor = true;
+            this.buttonMessageLong.Click += new System.EventHandler(this.OnMessageLong);
+            // 
+            // buttonMessageLonger
+            // 
+            this.buttonMessageLonger.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonMessageLonger.AutoSize = true;
+            this.buttonMessageLonger.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonMessageLonger.Location = new System.Drawing.Point(841, 186);
+            this.buttonMessageLonger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonMessageLonger.Name = "buttonMessageLonger";
+            this.buttonMessageLonger.Size = new System.Drawing.Size(236, 42);
+            this.buttonMessageLonger.TabIndex = 19;
+            this.buttonMessageLonger.Text = "Message Longer";
+            this.buttonMessageLonger.UseVisualStyleBackColor = true;
+            this.buttonMessageLonger.Click += new System.EventHandler(this.OnMessageLonger);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 302);
+            this.ClientSize = new System.Drawing.Size(1163, 443);
             this.Controls.Add(this.tableLayoutPanelTop);
             this.Name = "MainForm";
             this.Text = "Utils Demo";
@@ -319,6 +498,17 @@
         private System.Windows.Forms.Button buttonExc;
         private System.Windows.Forms.Button buttonExc1;
         private System.Windows.Forms.Button buttonScrolledTextModal;
+        private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.Button buttonYesNoCancel;
+        private System.Windows.Forms.Button buttonAbortRetryIgnore;
+        private System.Windows.Forms.Button buttonOkCancel;
+        private System.Windows.Forms.Button buttonYesNo;
+        private System.Windows.Forms.Button buttonRetryCancel;
+        private System.Windows.Forms.Button buttonMBOk;
+        private System.Windows.Forms.Button buttonMBLonger;
+        private System.Windows.Forms.Button buttonMBLong;
+        private System.Windows.Forms.Button buttonMessageLong;
+        private System.Windows.Forms.Button buttonMessageLonger;
     }
 }
 

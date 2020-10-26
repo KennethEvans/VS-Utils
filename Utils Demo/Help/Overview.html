@@ -9,9 +9,129 @@
 <h1 align="center"><strong><img src="UtilsDemo.256x256.png" alt="Logo" width="256" height="256" align="middle" /> Utils Demo Overview</strong></h1>
 <p align="left">Utils Demo is an application to demonstrate some of the utilities in the Utils class library.</p>
 <h3 align="left">The Interface</h3>
-<p>This is a screen shot of the Utils Demo interface.</p>
-<p align="center"><img src="UtilsDemoScreenshot.png" alt="CSP Brush Info Screenshot" width="50%" /></p>
-<h3>More Information</h3>
-<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? </p>
+<p>This is a screen shot of the Utils Demo interface. There are buttons to demonstrate and test the various utilities. </p>
+<p align="center"><img src="UtilsDemoScreenshot.png" alt="Utils Demo Screenshot" width="50%" /></p>
+<h3>Utils Library</h3>
+<p>This is a C# class library. You can use it in your project by including Utils.dll as a reference.</p>
+<h3>Utils</h3>
+<p>This class primarily provides error handling by bringing up an appropriate dialog.</p>
+<p> It includes: </p>
+<ul><li>void infoMsg(string msg)</li>
+  <li>void warmMsg(string msg)</li>
+  <li>void errMsg(string msg)</li>
+  <li>void Msg(string msg, Exception ex)</li>
+  <li>Size getDpiAdjustedSize(Form form, Size size)</li>
+</ul>
+<h3>AboutBox</h3>
+<p>This is a class that provides an About dialog. It has an image and is designed to use information such as ProductName, Version, Copyright, CompanyName, and Description from the Assembly.</p>
+<p align="center"><img src="AboutBoxScreenshot.png" alt="About Box Screenshot" width="40%" /></p>
+<p><strong>Usage example:</strong> </p>
+<pre>
+    Assembly assembly = Assembly.GetExecutingAssembly();
+    Image image = null; 
+    try { 
+        image = Image.FromFile(@&quot;.\Help\UtilsDemo.256x256.png&quot;);
+    } catch (Exception ex) { 
+        Utils.excMsg(&quot;Failed to get AbutBox image&quot;, ex);
+    }
+    AboutBox dlg = new AboutBox(&quot;About Utils Demo&quot;, image, assembly);  
+    dlg.ShowDialog();
+</pre>
+<h3>ScrolledTextDialog</h3>
+<p>This is a dialog that displays scrolled text. It has Clear, Cancel, and Ok buttons. It can be used as both modal and modeless.</p>
+<p><strong>Modless Example</strong></p>
+<pre>
+    private static ScrolledTextDialog scrolledText;
+
+    DateTime now = new DateTime();
+    if (scrolledText == null) {
+        scrolledText = new ScrolledTextDialog(
+            Utils.getDpiAdjustedSize(this, new Size(400, 400)),
+            &quot;Start of Scrolled Text&quot;);
+        scrolledText.appendTextAndNL(&quot;OnScrolledTextClick (First Time)&quot; + now);
+    }
+    scrolledText.ButtonCancel.Visible = false;
+    scrolledText.appendTextAndNL(NL + &quot;OnScrolledTextClick &quot; + now);
+    scrolledText.Visible = true; 
+</pre>
+<p><strong>Modal Example </strong></p>
+<pre>
+    string msg = "Some information;
+    ScrolledTextDialog dlg = new ScrolledTextDialog(
+    Utils.getDpiAdjustedSize(this, new Size(400, 400)),
+        &quot;Example Scrolled Text&quot;);
+    dlg.appendText(msg);
+    DialogResult res = dlg.ShowDialog();
+    if (res == DialogResult.OK) {
+        Utils.infoMsg(&quot;You clicked OK&quot;);
+    } else if (res == DialogResult.Cancel) {
+        Utils.infoMsg(&quot;You clicked Cancel&quot;);
+    }
+</pre>
+<h3>ScrolledHtmlDialog</h3>
+<p>This is a dialog that displays an HTMLweb page as would be used for an Overview item on the Help menu.
+It is assumed there is a folder named Help in the bin directory which has files Overview.html
+as well as images, CSS, and other items as needed by Overview.html. The dialog is a simple web browser with Back and Forward buttons. It can follow links. </p>
+<p><strong>Usage Example</strong></p>
+<pre>
+    private static ScrolledHTMLDialog overviewDlg;
+  
+    if (overviewDlg == null) {
+        MainForm app = (MainForm)FindForm().FindForm();
+        overviewDlg = new ScrolledHTMLDialog(
+            Utils.getDpiAdjustedSize(app, new Size(800, 600)),
+            "Overview");
+        overviewDlg.Show();
+    } else {
+        overviewDlg.Visible = true;
+    }
+</pre>
+<h3>MessageDialog</h3>
+<p> This is a class that duplicates much of what MessageBox does. Much of 
+the implementation is heavily borrowed from FlexibleMessageBox:<br>
+<br>
+Author:         J&ouml;rg Reichert(public @jreichert.de)<br>
+Contributors:   Thanks to: David Hall, Roink<br>
+Version:        1.3<br>
+Published at:<a href="http://www.codeproject.com/Articles/601900/FlexibleMessageBox">   http://www.codeproject.com/Articles/601900/FlexibleMessageBox</a><br>
+<br>
+Features:<br>
+ - It can be simply used instead of MessageBox since all important
+       static &quot;Show&quot; methods are supported<br>
+ - It can be resized and the content is correctly word-wrapped<br>
+ - It tries to auto-size the width to show the longest text row<br>
+ - It never exceeds the current desktop working area<br>
+ - It displays a vertical scrollbar when needed<br>
+- It supports hyperlinks in text<br>
+  <br>
+  MessageDialog is a different implementation from FlexibleMessageBox. The interface is a little more different from MessageBox and there is a context menu. Some issues with FlexibleMessageBox have been fixed. These include
+
+<ul>
+  <li>Not allowing resize beyond the maximum width and height factors</li>
+  <li>Not compensating for wrapped lines in calculating the size   </li>
+</ul>
+<p>Because the interface is identical to MessageBox, you can add
+    MessageDialog to your project and use the it almost everywhere you use
+a standard MessageBox. It is only necessary to change the class name. </p>
+<p>It has a context menu for Copy unlike MessageBox, and Copy only copies the text, not what Ctrl-C does in MessageBox.. It does not center on the screen as does MessageBox, and the layout and default font are a little different from MessageBox.
+
+<p><strong></strong>There are static fields for FONT, MAX_WIDTH_FACTOR, and 
+MAX_HEIGHT_Factor that can be used to override the defaults.</p>
+<p><strong>Usage examples:</strong>
+<pre>
+    MessageDialog.Show(&quot;Some text&quot;);
+
+    MessageDialog.Show(&quot;Some text&quot;, &quot;A caption&quot;);
+
+    MessageDialog.Show(&quot;Some text with a link: www.google.com&quot;,
+        &quot;Some caption&quot;,
+        MessageBoxButtons.AbortRetryIgnore, 
+        MessageBoxIcon.Information, 
+        MessageBoxDefaultButton.Button2);
+
+    var dialogResult = MessageDialog.Show(
+        &quot;Do you know the answer to life the universe and everything?&quot;,
+        &quot;One short question&quot;, MessageBoxButtons.YesNo);
+</pre>
 </body>
 </html>

@@ -1,4 +1,7 @@
-﻿using KEUtils.About;
+﻿//#define SHOW_ITEM_CLICKED
+
+using KEUtils.About;
+using KEUtils.Message;
 using KEUtils.ScrolledHTML;
 using KEUtils.ScrolledText;
 using KEUtils.Utils;
@@ -10,6 +13,27 @@ using System.Windows.Forms;
 namespace Utils_Demo {
     public partial class MainForm : Form {
         public static readonly String NL = Environment.NewLine;
+        public static readonly string LONG_STRING =
+     "Sed ut perspiciatis unde omnis iste natus error sit voluptatem"
+     + "accusantium doloremque laudantium, totam rem aperiam, "
+     + "eaque ipsa quae ab illo inventore veritatis et quasi "
+     + "architecto beatae vitae dicta sunt explicabo.Nemo enim "
+     + "ipsam voluptatem quia voluptas sit aspernatur aut odit "
+     + "aut fugit, sed quia consequuntur magni dolores eos qui "
+     + "ratione voluptatem sequi nesciunt. Neque porro quisquam "
+     + "est, qui dolorem ipsum quia dolor sit amet, consectetur, "
+     + "adipisci velit, sed quia non numquam eius modi tempora "
+     + "incidunt ut labore et dolore magnam aliquam quaerat " +
+     "voluptatem. Ut enim ad minima veniam, quis nostrum "
+     + "exercitationem ullam corporis suscipit laboriosam, "
+     + "nisi ut aliquid ex ea commodi consequatur? Quis autem "
+     + "vel eum iure reprehenderit qui in ea voluptate velit "
+     + "esse quam nihil molestiae consequatur, vel illum qui "
+     + "dolorem eum fugiat quo voluptas nulla pariatur ?";
+        public static readonly string VERY_LONG_STRING = LONG_STRING +
+            " " + LONG_STRING + " " + LONG_STRING + " " + LONG_STRING +
+            " " + LONG_STRING + " " + LONG_STRING + " " + LONG_STRING +
+            " " + LONG_STRING;
 
         private static ScrolledHTMLDialog overviewDlg;
         private static ScrolledTextDialog scrolledText;
@@ -34,7 +58,6 @@ namespace Utils_Demo {
             } else {
                 overviewDlg.Visible = true;
             }
-
         }
 
         private void OnHelpAboutClick(object sender, EventArgs e) {
@@ -42,7 +65,7 @@ namespace Utils_Demo {
             Image image = null;
             try {
                 image = Image.FromFile(@".\Help\UtilsDemo.256x256.png");
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 Utils.excMsg("Failed to get AbutBox image", ex);
             }
             AboutBox dlg = new AboutBox("About Utils Demo", image, assembly);
@@ -56,9 +79,10 @@ namespace Utils_Demo {
         }
 
         private void OnWarnClick(object sender, EventArgs e) {
-            string msg = "This is an example warning."
-                + NL + "This is a second line";
-            Utils.warnMsg(msg);
+            //string msg = "This is an example warning."
+            //+ NL + "This is a second line";
+            string text = VERY_LONG_STRING;
+            Utils.warnMsg(text);
         }
 
         private void OnErrClick(object sender, EventArgs e) {
@@ -100,23 +124,7 @@ namespace Utils_Demo {
         }
 
         private void OnScrolledTextClickModalClick(object sender, EventArgs e) {
-            string msg =
-                 "Sed ut perspiciatis unde omnis iste natus error sit voluptatem" 
-                 + "accusantium doloremque laudantium, totam rem aperiam, "
-                 + "eaque ipsa quae ab illo inventore veritatis et quasi "
-                 + "architecto beatae vitae dicta sunt explicabo.Nemo enim "
-                 + "ipsam voluptatem quia voluptas sit aspernatur aut odit " 
-                 + "aut fugit, sed quia consequuntur magni dolores eos qui " 
-                 + "ratione voluptatem sequi nesciunt. Neque porro quisquam "
-                 + "est, qui dolorem ipsum quia dolor sit amet, consectetur, "
-                 + "adipisci velit, sed quia non numquam eius modi tempora "
-                 + "incidunt ut labore et dolore magnam aliquam quaerat " +
-                 "voluptatem. Ut enim ad minima veniam, quis nostrum "
-                 + "exercitationem ullam corporis suscipit laboriosam, "
-                 + "nisi ut aliquid ex ea commodi consequatur? Quis autem "
-                 + "vel eum iure reprehenderit qui in ea voluptate velit "
-                 + "esse quam nihil molestiae consequatur, vel illum qui "
-                 + "dolorem eum fugiat quo voluptas nulla pariatur ?";
+            string msg = LONG_STRING;
             ScrolledTextDialog dlg = new ScrolledTextDialog(
             Utils.getDpiAdjustedSize(this, new Size(400, 400)),
             "Example Scrolled Text");
@@ -128,5 +136,115 @@ namespace Utils_Demo {
                 Utils.infoMsg("You clicked Cancel");
             }
         }
+
+        private void OnMessageOkClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Text";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageOkCancelClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = LONG_STRING;
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageAbortRetryIgnoreClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Text";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageYesNoCancelClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Text";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageYesNoClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Text";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageRetryCancelClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Text";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageBoxOk(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Text";
+            DialogResult res = MessageBox.Show(text, caption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageBoxLong(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = LONG_STRING;
+            DialogResult res = MessageBox.Show(text, caption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageBoxLonger(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = VERY_LONG_STRING;
+            DialogResult res = MessageBox.Show(text, caption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageLong(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = LONG_STRING;
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+        private void OnMessageLonger(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = VERY_LONG_STRING;
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
     }
 }
