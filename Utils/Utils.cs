@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KEUtils.Message;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,11 +8,30 @@ namespace KEUtils.Utils {
         public static string NL = System.Environment.NewLine;
 
         /// <summary>
+        /// Information message.
+        /// </summary>
+        /// <param name="msg"></param>
+        public static void infoMsg(string msg) {
+            MessageDialog.Show(msg, "Information", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// Warning message.
+        /// </summary>
+        /// <param name="msg"></param>
+        public static void warnMsg(string msg) {
+            MessageDialog.Show(msg, "Warning", MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+        }
+
+        /// <summary>
         /// Error message.
         /// </summary>
         /// <param name="msg"></param>
         public static void errMsg(string msg) {
-            MessageBox.Show(msg, "Error");
+            MessageDialog.Show(msg, "Error", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
         }
 
         /// <summary>
@@ -20,24 +40,20 @@ namespace KEUtils.Utils {
         /// <param name="msg"></param>
         /// <param name="ex"></param>
         public static void excMsg(string msg, Exception ex) {
-            MessageBox.Show(msg += NL + "Exception: " + ex + NL
-            + ex.Message, "Exception");
+            MessageDialog.Show(msg += NL + NL + "Exception: " + ex + NL
+            + ex.Message, "Exception", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
         }
 
         /// <summary>
-        /// Warning message.
+        /// Exception message.
         /// </summary>
-        /// <param name="msg"></param>
-        public static void warnMsg(string msg) {
-            MessageBox.Show(msg, "Warning");
-        }
-
-        /// <summary>
-        /// Information message.
-        /// </summary>
-        /// <param name="msg"></param>
-        public static void infoMsg(string msg) {
-            MessageBox.Show(msg, "Information");
+        /// <param name="prompt"></param>
+        /// <param name="ex"></param>
+        public static DialogResult confirmMsg(string prompt) {
+            DialogResult res = MessageDialog.Show(prompt, "Confirm", 
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            return res;
         }
 
         /// <summary>

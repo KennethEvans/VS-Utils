@@ -15,7 +15,7 @@ It includes:
 -   void infoMsg(string msg)
 -   void warmMsg(string msg)
 -   void errMsg(string msg)
--   void Msg(string msg, Exception ex)
+-   void excMsg(string msg, Exception ex)
 -   Size getDpiAdjustedSize(Form form, Size size)
 
 ## AboutBox

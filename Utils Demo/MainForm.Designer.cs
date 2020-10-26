@@ -36,22 +36,22 @@
             this.buttonWarn = new System.Windows.Forms.Button();
             this.buttonErr = new System.Windows.Forms.Button();
             this.buttonExc = new System.Windows.Forms.Button();
-            this.buttonExc1 = new System.Windows.Forms.Button();
+            this.buttonConfirm = new System.Windows.Forms.Button();
             this.buttonScrolledTextModeless = new System.Windows.Forms.Button();
             this.buttonScrolledTextModal = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.buttonOkCancel = new System.Windows.Forms.Button();
-            this.buttonAbortRetryIgnore = new System.Windows.Forms.Button();
-            this.buttonYesNoCancel = new System.Windows.Forms.Button();
-            this.buttonYesNo = new System.Windows.Forms.Button();
-            this.buttonRetryCancel = new System.Windows.Forms.Button();
-            this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonMBOk = new System.Windows.Forms.Button();
             this.buttonMBLonger = new System.Windows.Forms.Button();
             this.buttonMBLong = new System.Windows.Forms.Button();
+            this.buttonYesNo = new System.Windows.Forms.Button();
+            this.buttonRetryCancel = new System.Windows.Forms.Button();
+            this.buttonYesNoCancel = new System.Windows.Forms.Button();
+            this.buttonOkCancel = new System.Windows.Forms.Button();
+            this.buttonAbortRetryIgnore = new System.Windows.Forms.Button();
             this.buttonMessageLong = new System.Windows.Forms.Button();
             this.buttonMessageLonger = new System.Windows.Forms.Button();
+            this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonQuit = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanelButtons.SuspendLayout();
@@ -83,13 +83,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1163, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 60);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,7 +150,7 @@
             this.tableLayoutPanelButtons.Controls.Add(this.buttonWarn, 1, 0);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonErr, 2, 0);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonExc, 0, 1);
-            this.tableLayoutPanelButtons.Controls.Add(this.buttonExc1, 1, 1);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonConfirm, 1, 1);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonScrolledTextModeless, 0, 2);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonScrolledTextModal, 0, 2);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonOk, 0, 4);
@@ -164,7 +165,7 @@
             this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLong, 1, 4);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLonger, 2, 4);
             this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 52);
+            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 63);
             this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             this.tableLayoutPanelButtons.RowCount = 7;
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -233,19 +234,19 @@
             this.buttonExc.UseVisualStyleBackColor = true;
             this.buttonExc.Click += new System.EventHandler(this.OnExcClick);
             // 
-            // buttonExc1
+            // buttonConfirm
             // 
-            this.buttonExc1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonExc1.AutoSize = true;
-            this.buttonExc1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonExc1.Location = new System.Drawing.Point(445, 48);
-            this.buttonExc1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonExc1.Name = "buttonExc1";
-            this.buttonExc1.Size = new System.Drawing.Size(252, 42);
-            this.buttonExc1.TabIndex = 10;
-            this.buttonExc1.Text = " Exception / Trace";
-            this.buttonExc1.UseVisualStyleBackColor = true;
-            this.buttonExc1.Click += new System.EventHandler(this.OnExc1Click);
+            this.buttonConfirm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonConfirm.AutoSize = true;
+            this.buttonConfirm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonConfirm.Location = new System.Drawing.Point(509, 48);
+            this.buttonConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonConfirm.Name = "buttonConfirm";
+            this.buttonConfirm.Size = new System.Drawing.Size(124, 42);
+            this.buttonConfirm.TabIndex = 10;
+            this.buttonConfirm.Text = "Confirm";
+            this.buttonConfirm.UseVisualStyleBackColor = true;
+            this.buttonConfirm.Click += new System.EventHandler(this.OnPromptClick);
             // 
             // buttonScrolledTextModeless
             // 
@@ -289,104 +290,6 @@
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.OnMessageOkClick);
             // 
-            // buttonOkCancel
-            // 
-            this.buttonOkCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonOkCancel.AutoSize = true;
-            this.buttonOkCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonOkCancel.Location = new System.Drawing.Point(52, 232);
-            this.buttonOkCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonOkCancel.Name = "buttonOkCancel";
-            this.buttonOkCancel.Size = new System.Drawing.Size(277, 42);
-            this.buttonOkCancel.TabIndex = 13;
-            this.buttonOkCancel.Text = "Message OKCancel";
-            this.buttonOkCancel.UseVisualStyleBackColor = true;
-            this.buttonOkCancel.Click += new System.EventHandler(this.OnMessageOkCancelClick);
-            // 
-            // buttonAbortRetryIgnore
-            // 
-            this.buttonAbortRetryIgnore.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAbortRetryIgnore.AutoSize = true;
-            this.buttonAbortRetryIgnore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAbortRetryIgnore.Location = new System.Drawing.Point(390, 232);
-            this.buttonAbortRetryIgnore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonAbortRetryIgnore.Name = "buttonAbortRetryIgnore";
-            this.buttonAbortRetryIgnore.Size = new System.Drawing.Size(362, 42);
-            this.buttonAbortRetryIgnore.TabIndex = 14;
-            this.buttonAbortRetryIgnore.Text = "Message AbortRetryIgnore";
-            this.buttonAbortRetryIgnore.UseVisualStyleBackColor = true;
-            this.buttonAbortRetryIgnore.Click += new System.EventHandler(this.OnMessageAbortRetryIgnoreClick);
-            // 
-            // buttonYesNoCancel
-            // 
-            this.buttonYesNoCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonYesNoCancel.AutoSize = true;
-            this.buttonYesNoCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonYesNoCancel.Location = new System.Drawing.Point(799, 232);
-            this.buttonYesNoCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonYesNoCancel.Name = "buttonYesNoCancel";
-            this.buttonYesNoCancel.Size = new System.Drawing.Size(321, 42);
-            this.buttonYesNoCancel.TabIndex = 15;
-            this.buttonYesNoCancel.Text = "Message YesNoCancel";
-            this.buttonYesNoCancel.UseVisualStyleBackColor = true;
-            this.buttonYesNoCancel.Click += new System.EventHandler(this.OnMessageYesNoCancelClick);
-            // 
-            // buttonYesNo
-            // 
-            this.buttonYesNo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonYesNo.AutoSize = true;
-            this.buttonYesNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonYesNo.Location = new System.Drawing.Point(74, 278);
-            this.buttonYesNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonYesNo.Name = "buttonYesNo";
-            this.buttonYesNo.Size = new System.Drawing.Size(232, 42);
-            this.buttonYesNo.TabIndex = 17;
-            this.buttonYesNo.Text = "Message YesNo";
-            this.buttonYesNo.UseVisualStyleBackColor = true;
-            this.buttonYesNo.Click += new System.EventHandler(this.OnMessageYesNoClick);
-            // 
-            // buttonRetryCancel
-            // 
-            this.buttonRetryCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonRetryCancel.AutoSize = true;
-            this.buttonRetryCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonRetryCancel.Location = new System.Drawing.Point(420, 278);
-            this.buttonRetryCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonRetryCancel.Name = "buttonRetryCancel";
-            this.buttonRetryCancel.Size = new System.Drawing.Size(303, 42);
-            this.buttonRetryCancel.TabIndex = 16;
-            this.buttonRetryCancel.Text = "Message RetryCancel";
-            this.buttonRetryCancel.UseVisualStyleBackColor = true;
-            this.buttonRetryCancel.Click += new System.EventHandler(this.OnMessageRetryCancelClick);
-            // 
-            // flowLayoutPanelButtons
-            // 
-            this.flowLayoutPanelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.flowLayoutPanelButtons.AutoSize = true;
-            this.flowLayoutPanelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanelButtons.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanelButtons.Controls.Add(this.buttonQuit);
-            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(539, 387);
-            this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 10, 3, 2);
-            this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(84, 54);
-            this.flowLayoutPanelButtons.TabIndex = 0;
-            this.flowLayoutPanelButtons.WrapContents = false;
-            // 
-            // buttonQuit
-            // 
-            this.buttonQuit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonQuit.AutoSize = true;
-            this.buttonQuit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonQuit.Location = new System.Drawing.Point(3, 2);
-            this.buttonQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(78, 42);
-            this.buttonQuit.TabIndex = 3;
-            this.buttonQuit.Text = "Quit";
-            this.buttonQuit.UseVisualStyleBackColor = true;
-            this.buttonQuit.Click += new System.EventHandler(this.OnFileQuitClick);
-            // 
             // buttonMBOk
             // 
             this.buttonMBOk.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -429,6 +332,76 @@
             this.buttonMBLong.UseVisualStyleBackColor = true;
             this.buttonMBLong.Click += new System.EventHandler(this.OnMessageBoxLong);
             // 
+            // buttonYesNo
+            // 
+            this.buttonYesNo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonYesNo.AutoSize = true;
+            this.buttonYesNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonYesNo.Location = new System.Drawing.Point(74, 278);
+            this.buttonYesNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonYesNo.Name = "buttonYesNo";
+            this.buttonYesNo.Size = new System.Drawing.Size(232, 42);
+            this.buttonYesNo.TabIndex = 17;
+            this.buttonYesNo.Text = "Message YesNo";
+            this.buttonYesNo.UseVisualStyleBackColor = true;
+            this.buttonYesNo.Click += new System.EventHandler(this.OnMessageYesNoClick);
+            // 
+            // buttonRetryCancel
+            // 
+            this.buttonRetryCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonRetryCancel.AutoSize = true;
+            this.buttonRetryCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonRetryCancel.Location = new System.Drawing.Point(420, 278);
+            this.buttonRetryCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonRetryCancel.Name = "buttonRetryCancel";
+            this.buttonRetryCancel.Size = new System.Drawing.Size(303, 42);
+            this.buttonRetryCancel.TabIndex = 16;
+            this.buttonRetryCancel.Text = "Message RetryCancel";
+            this.buttonRetryCancel.UseVisualStyleBackColor = true;
+            this.buttonRetryCancel.Click += new System.EventHandler(this.OnMessageRetryCancelClick);
+            // 
+            // buttonYesNoCancel
+            // 
+            this.buttonYesNoCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonYesNoCancel.AutoSize = true;
+            this.buttonYesNoCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonYesNoCancel.Location = new System.Drawing.Point(799, 232);
+            this.buttonYesNoCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonYesNoCancel.Name = "buttonYesNoCancel";
+            this.buttonYesNoCancel.Size = new System.Drawing.Size(321, 42);
+            this.buttonYesNoCancel.TabIndex = 15;
+            this.buttonYesNoCancel.Text = "Message YesNoCancel";
+            this.buttonYesNoCancel.UseVisualStyleBackColor = true;
+            this.buttonYesNoCancel.Click += new System.EventHandler(this.OnMessageYesNoCancelClick);
+            // 
+            // buttonOkCancel
+            // 
+            this.buttonOkCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonOkCancel.AutoSize = true;
+            this.buttonOkCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonOkCancel.Location = new System.Drawing.Point(52, 232);
+            this.buttonOkCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonOkCancel.Name = "buttonOkCancel";
+            this.buttonOkCancel.Size = new System.Drawing.Size(277, 42);
+            this.buttonOkCancel.TabIndex = 13;
+            this.buttonOkCancel.Text = "Message OKCancel";
+            this.buttonOkCancel.UseVisualStyleBackColor = true;
+            this.buttonOkCancel.Click += new System.EventHandler(this.OnMessageOkCancelClick);
+            // 
+            // buttonAbortRetryIgnore
+            // 
+            this.buttonAbortRetryIgnore.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonAbortRetryIgnore.AutoSize = true;
+            this.buttonAbortRetryIgnore.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAbortRetryIgnore.Location = new System.Drawing.Point(390, 232);
+            this.buttonAbortRetryIgnore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonAbortRetryIgnore.Name = "buttonAbortRetryIgnore";
+            this.buttonAbortRetryIgnore.Size = new System.Drawing.Size(362, 42);
+            this.buttonAbortRetryIgnore.TabIndex = 14;
+            this.buttonAbortRetryIgnore.Text = "Message AbortRetryIgnore";
+            this.buttonAbortRetryIgnore.UseVisualStyleBackColor = true;
+            this.buttonAbortRetryIgnore.Click += new System.EventHandler(this.OnMessageAbortRetryIgnoreClick);
+            // 
             // buttonMessageLong
             // 
             this.buttonMessageLong.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -456,6 +429,34 @@
             this.buttonMessageLonger.Text = "Message Longer";
             this.buttonMessageLonger.UseVisualStyleBackColor = true;
             this.buttonMessageLonger.Click += new System.EventHandler(this.OnMessageLonger);
+            // 
+            // flowLayoutPanelButtons
+            // 
+            this.flowLayoutPanelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanelButtons.AutoSize = true;
+            this.flowLayoutPanelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelButtons.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanelButtons.Controls.Add(this.buttonQuit);
+            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(539, 398);
+            this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 10, 3, 2);
+            this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(84, 46);
+            this.flowLayoutPanelButtons.TabIndex = 0;
+            this.flowLayoutPanelButtons.WrapContents = false;
+            // 
+            // buttonQuit
+            // 
+            this.buttonQuit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonQuit.AutoSize = true;
+            this.buttonQuit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonQuit.Location = new System.Drawing.Point(3, 2);
+            this.buttonQuit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonQuit.Name = "buttonQuit";
+            this.buttonQuit.Size = new System.Drawing.Size(78, 42);
+            this.buttonQuit.TabIndex = 3;
+            this.buttonQuit.Text = "Quit";
+            this.buttonQuit.UseVisualStyleBackColor = true;
+            this.buttonQuit.Click += new System.EventHandler(this.OnFileQuitClick);
             // 
             // MainForm
             // 
@@ -496,7 +497,6 @@
         private System.Windows.Forms.Button buttonErr;
         private System.Windows.Forms.Button buttonScrolledTextModeless;
         private System.Windows.Forms.Button buttonExc;
-        private System.Windows.Forms.Button buttonExc1;
         private System.Windows.Forms.Button buttonScrolledTextModal;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonYesNoCancel;
@@ -509,6 +509,7 @@
         private System.Windows.Forms.Button buttonMBLong;
         private System.Windows.Forms.Button buttonMessageLong;
         private System.Windows.Forms.Button buttonMessageLonger;
+        private System.Windows.Forms.Button buttonConfirm;
     }
 }
 

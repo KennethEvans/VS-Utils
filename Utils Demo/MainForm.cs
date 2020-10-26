@@ -73,16 +73,15 @@ namespace Utils_Demo {
         }
 
         private void OnInfoClick(object sender, EventArgs e) {
-            string msg = "This is some example information."
+            string msg = "This is some example information. See www.google.com"
                 + NL + "This is a second line";
             Utils.infoMsg(msg);
         }
 
         private void OnWarnClick(object sender, EventArgs e) {
-            //string msg = "This is an example warning."
-            //+ NL + "This is a second line";
-            string text = VERY_LONG_STRING;
-            Utils.warnMsg(text);
+            string msg = "This is an example warning."
+            + NL + "This is a second line";
+            Utils.warnMsg(msg);
         }
 
         private void OnErrClick(object sender, EventArgs e) {
@@ -92,7 +91,7 @@ namespace Utils_Demo {
         }
 
         private void OnExcClick(object sender, EventArgs e) {
-            string msg = "This is some example exception information.";
+            string msg = "This application encountered an error.";
             try {
                 Double.Parse("garbage");
             } catch (Exception ex) {
@@ -100,13 +99,13 @@ namespace Utils_Demo {
             }
         }
 
-        private void OnExc1Click(object sender, EventArgs e) {
-            string msg = "This is some example exception information with a stack trace.";
-            try {
-                Double.Parse("garbage");
-            } catch (Exception ex) {
-                Utils.excMsg(msg + NL + ex.StackTrace, ex);
-            }
+        private void OnPromptClick(object sender, EventArgs e) {
+            string prompt = "Ok to continue?";
+            DialogResult res = Utils.confirmMsg(prompt);
+#if SHOW_ITEM_CLICKED || true
+            Utils.infoMsg(res + " clicked");
+#endif
+
         }
 
         private void OnScrolledTextClickModelessClick(object sender, EventArgs e) {
@@ -130,18 +129,16 @@ namespace Utils_Demo {
             "Example Scrolled Text");
             dlg.appendText(msg);
             DialogResult res = dlg.ShowDialog();
-            if (res == DialogResult.OK) {
-                Utils.infoMsg("You clicked OK");
-            } else if (res == DialogResult.Cancel) {
-                Utils.infoMsg("You clicked Cancel");
-            }
+#if SHOW_ITEM_CLICKED
+             Utils.infoMsg( res + " clicked");
+#endif
         }
 
         private void OnMessageOkClick(object sender, EventArgs e) {
             string caption = "Caption";
             string text = "Text";
             DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxButtons.OK);
 #if SHOW_ITEM_CLICKED
             Utils.infoMsg( res + " clicked");
 #endif
