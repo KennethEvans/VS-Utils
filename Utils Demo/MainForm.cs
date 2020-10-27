@@ -53,7 +53,7 @@ namespace Utils_Demo {
                 MainForm app = (MainForm)FindForm().FindForm();
                 overviewDlg = new ScrolledHTMLDialog(
                     Utils.getDpiAdjustedSize(app, new Size(800, 600)),
-                    "Overview");
+                    "Overview", @"Help\Overview.html");
                 overviewDlg.Show();
             } else {
                 overviewDlg.Visible = true;

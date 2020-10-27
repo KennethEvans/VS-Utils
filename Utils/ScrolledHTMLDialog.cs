@@ -4,20 +4,33 @@ using System.Windows.Forms;
 
 namespace KEUtils.ScrolledHTML {
     public partial class ScrolledHTMLDialog : Form {
-        public ScrolledHTMLDialog(Size size, string text) {
+        /// <summary>
+        /// Brings up a dialog with the given HTML as scrollable.
+        /// </summary>
+        /// <param name="size">The Size of the dialog.</param>
+        /// <param name="title">The title of the Form.</param>
+        /// <param name="htmlFile">The HTML file to use.</param>
+        public ScrolledHTMLDialog(Size size, string title, string htmlFile) {
             InitializeComponent();
 
-            this.Text = text;
+            if (!String.IsNullOrEmpty(title)) {
+                this.Text = title;
+            }
 
             // Resize the Form
             if (size != null) {
                 this.Size = size;
             }
 
+            if (String.IsNullOrEmpty(htmlFile)) {
+                Utils.Utils.errMsg("HTML file is invalid");
+                return;
+            }
+
             // Add the HTML
             string appDir = System.IO.Path.GetDirectoryName(
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-            webBrowser.Url = new Uri(System.IO.Path.Combine(appDir, @"Help\Overview.html"));
+            System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+            webBrowser.Url = new Uri(System.IO.Path.Combine(appDir, htmlFile));
 
         }
 
