@@ -79,13 +79,14 @@ simple web browser with Back and Forward buttons. It can follow links.
 
 **Usage Example**
 
+It is assumed there is a folder named Help in the bin directory which has files Overview.html as well as images, CSS, and other items as needed by Overview.html. 
+
         private static ScrolledHTMLDialog overviewDlg;
       
         if (overviewDlg == null) {
             MainForm app = (MainForm)FindForm().FindForm();
-            overviewDlg = new ScrolledHTMLDialog(
-                Utils.getDpiAdjustedSize(app, new Size(800, 600)),
-                "Overview");
+               Utils.getDpiAdjustedSize(app, new Size(800, 600)),
+               "Overview", @"Help\Overview.html");
             overviewDlg.Show();
         } else {
             overviewDlg.Visible = true;
