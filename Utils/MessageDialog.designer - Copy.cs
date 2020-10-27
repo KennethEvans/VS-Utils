@@ -45,11 +45,10 @@
             this.flowLayoutPanelButtons1.AutoSize = true;
             this.flowLayoutPanelButtons1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelButtons1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanelTop.SetColumnSpan(this.flowLayoutPanelButtons1, 2);
             this.flowLayoutPanelButtons1.Controls.Add(this.button1);
             this.flowLayoutPanelButtons1.Controls.Add(this.button2);
             this.flowLayoutPanelButtons1.Controls.Add(this.button3);
-            this.flowLayoutPanelButtons1.Location = new System.Drawing.Point(66, 60);
+            this.flowLayoutPanelButtons1.Location = new System.Drawing.Point(66, 104);
             this.flowLayoutPanelButtons1.Margin = new System.Windows.Forms.Padding(6);
             this.flowLayoutPanelButtons1.Name = "flowLayoutPanelButtons1";
             this.flowLayoutPanelButtons1.Size = new System.Drawing.Size(486, 57);
@@ -97,20 +96,19 @@
             this.tableLayoutPanelTop.AutoSize = true;
             this.tableLayoutPanelTop.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanelTop.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanelTop.ColumnCount = 2;
-            this.tableLayoutPanelTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanelTop.ColumnCount = 1;
             this.tableLayoutPanelTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelTop.Controls.Add(this.pictureBox, 0, 0);
-            this.tableLayoutPanelTop.Controls.Add(this.richTextBox, 1, 0);
-            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons1, 0, 1);
+            this.tableLayoutPanelTop.Controls.Add(this.richTextBox, 0, 1);
+            this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons1, 0, 2);
             this.tableLayoutPanelTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelTop.Name = "tableLayoutPanelTop";
             this.tableLayoutPanelTop.RowCount = 3;
+            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTop.Size = new System.Drawing.Size(618, 123);
+            this.tableLayoutPanelTop.Size = new System.Drawing.Size(618, 167);
             this.tableLayoutPanelTop.TabIndex = 2;
             // 
             // pictureBox
@@ -132,11 +130,11 @@
             this.richTextBox.BackColor = System.Drawing.Color.White;
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.ContextMenuStrip = this.contextMenuStrip;
-            this.richTextBox.Location = new System.Drawing.Point(55, 3);
+            this.richTextBox.Location = new System.Drawing.Point(3, 55);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ReadOnly = true;
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox.Size = new System.Drawing.Size(560, 48);
+            this.richTextBox.Size = new System.Drawing.Size(612, 40);
             this.richTextBox.TabIndex = 7;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.OnRichTextBoxLinkClicked);
@@ -152,7 +150,7 @@
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(166, 48);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(360, 48);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.OnCopyClick);
             // 
@@ -162,7 +160,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(618, 123);
+            this.ClientSize = new System.Drawing.Size(618, 167);
             this.Controls.Add(this.tableLayoutPanelTop);
             this.Name = "MessageDialog";
             this.ShowIcon = false;

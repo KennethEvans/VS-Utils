@@ -134,69 +134,9 @@ namespace Utils_Demo {
 #endif
         }
 
-        private void OnMessageOkClick(object sender, EventArgs e) {
-            string caption = "Caption";
-            string text = "Text";
-            DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.OK);
-#if SHOW_ITEM_CLICKED
-            Utils.infoMsg( res + " clicked");
-#endif
-        }
-
-        private void OnMessageOkCancelClick(object sender, EventArgs e) {
-            string caption = "Caption";
-            string text = LONG_STRING;
-            DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-#if SHOW_ITEM_CLICKED
-            Utils.infoMsg( res + " clicked");
-#endif
-        }
-
-        private void OnMessageAbortRetryIgnoreClick(object sender, EventArgs e) {
-            string caption = "Caption";
-            string text = "Text";
-            DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information);
-#if SHOW_ITEM_CLICKED
-            Utils.infoMsg( res + " clicked");
-#endif
-        }
-
-        private void OnMessageYesNoCancelClick(object sender, EventArgs e) {
-            string caption = "Caption";
-            string text = "Text";
-            DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-#if SHOW_ITEM_CLICKED
-            Utils.infoMsg( res + " clicked");
-#endif
-        }
-
-        private void OnMessageYesNoClick(object sender, EventArgs e) {
-            string caption = "Caption";
-            string text = "Text";
-            DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-#if SHOW_ITEM_CLICKED
-            Utils.infoMsg( res + " clicked");
-#endif
-        }
-
-        private void OnMessageRetryCancelClick(object sender, EventArgs e) {
-            string caption = "Caption";
-            string text = "Text";
-            DialogResult res = MessageDialog.Show(text, caption,
-                MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
-#if SHOW_ITEM_CLICKED
-            Utils.infoMsg( res + " clicked");
-#endif
-        }
-
         private void OnMessageBoxOk(object sender, EventArgs e) {
             string caption = "Caption";
-            string text = "Text";
+            string text = "text";
             DialogResult res = MessageBox.Show(text, caption,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if SHOW_ITEM_CLICKED
@@ -219,6 +159,66 @@ namespace Utils_Demo {
             string text = VERY_LONG_STRING;
             DialogResult res = MessageBox.Show(text, caption,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageOkClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "No icon.";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.OK);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageOkCancelClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "An insignificant problem occurred.";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageAbortRetryIgnoreClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "A disaster occurred.";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Stop);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageYesNoCancelClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "File exists. Ok to overwrite?";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageYesNoClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "Ok to continue?";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+#if SHOW_ITEM_CLICKED
+            Utils.infoMsg( res + " clicked");
+#endif
+        }
+
+        private void OnMessageRetryCancelClick(object sender, EventArgs e) {
+            string caption = "Caption";
+            string text = "A problem occurred. Try again?";
+            DialogResult res = MessageDialog.Show(text, caption,
+                MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 #if SHOW_ITEM_CLICKED
             Utils.infoMsg( res + " clicked");
 #endif
