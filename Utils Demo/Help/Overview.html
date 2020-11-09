@@ -32,12 +32,12 @@
     try { 
         image = Image.FromFile(@&quot;.\Help\UtilsDemo.256x256.png&quot;);
     } catch (Exception ex) { 
-        Utils.excMsg(&quot;Failed to get AbutBox image&quot;, ex);
+        Utils.excMsg(&quot;Failed to get AboutBox image&quot;, ex);
     }
-    AboutBox dlg = new AboutBox(&quot;About Utils Demo&quot;, image, assembly);  
+    AboutBox dlg = new AboutBox(image, assembly);  
     dlg.ShowDialog();
 </pre>
-<h3>ScrolledTextDialog</h3>
+<h3>ScrolledTextDialogs</h3>
 <p>This is a dialog that displays scrolled text. It has Clear, Cancel, and Ok buttons. It can be used as both modal and modeless.</p>
 <p><strong>Modless Example</strong></p>
 <pre>

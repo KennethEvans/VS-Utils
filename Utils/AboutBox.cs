@@ -29,31 +29,36 @@ namespace KEUtils.About {
         }
 
         /// <summary>
+        /// Brings up an AboutBox. Gets the title from the Assembly in the form "About + 
+        /// </summary>
+        /// <param name="image">Image to use in the display. Suggested size is 256x256.</param>
+        /// <param name="assembly">The Assembly from which to get information. 
+        /// Typically Assembly.GetExecutingAssembly().</param>
+        public AboutBox(Image image, Assembly assembly) :
+            this("About " + getAssemblyProduct(assembly), image, assembly) { }
+
+        /// <summary>
         /// Brings up an AboutBox.
         /// </summary>
         /// <param name="title">Title of the form.</param>
         /// <param name="image">Image to use in the display. Suggested size is 256x256.</param>
         /// <param name="assembly">The Assembly from which to get information. 
         /// Typically Assembly.GetExecutingAssembly().</param>
-        public AboutBox(string title, Image image, Assembly assembly) {
-            InitializeComponent();
-            this.Text = title;
-            this.labelProductName.Text = getAssemblyProduct(assembly);
-            this.labelVersion.Text = getAssemblyVersion(assembly);
-            this.labelCopyright.Text = getAssemblyCopyright(assembly);
-            this.labelCompanyName.Text = getAssemblyCompany(assembly);
-            this.textBoxDescription.Text = getAssemblyDescription(assembly);
-            this.logoPictureBox.Image = image;
-        }
+        public AboutBox(string title, Image image, Assembly assembly) :
+            this(title, image, getAssemblyProduct(assembly),
+                getAssemblyVersion(assembly),
+                getAssemblyCopyright(assembly),
+                getAssemblyCompany(assembly),
+                getAssemblyDescription(assembly)) { }
 
         #region Assembly methods
 
         /// <summary>
-        /// Gets the tilte from the Assembly.
+        /// Gets the title from the Assembly.
         /// </summary>
         /// <param name="assembly">The Assembly to use.</param>
         /// <returns>The title.</returns>
-        public string getAssemblyTitle(Assembly assembly) {
+        public static string getAssemblyTitle(Assembly assembly) {
             object[] attributes = assembly.
                 GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
             if (attributes.Length > 0) {
@@ -71,7 +76,7 @@ namespace KEUtils.About {
         /// </summary>
         /// <param name="assembly">The Assembly to use.</param>
         /// <returns>The title.</returns>
-        public string getAssemblyVersion(Assembly assembly) {
+        public static string getAssemblyVersion(Assembly assembly) {
             return assembly.GetName().Version.ToString();
         }
 
@@ -80,7 +85,7 @@ namespace KEUtils.About {
         /// </summary>
         /// <param name="assembly">The Assembly to use.</param>
         /// <returns>The description.</returns>
-        public string getAssemblyDescription(Assembly assembly) {
+        public static string getAssemblyDescription(Assembly assembly) {
             object[] attributes = assembly
                 .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
             if (attributes.Length == 0) {
@@ -94,7 +99,7 @@ namespace KEUtils.About {
         /// </summary>
         /// <param name="assembly">The Assembly to use.</param>
         /// <returns>The product.</returns>
-        public string getAssemblyProduct(Assembly assembly) {
+        public static string getAssemblyProduct(Assembly assembly) {
             object[] attributes = assembly.
                 GetCustomAttributes(typeof(AssemblyProductAttribute), false);
             if (attributes.Length == 0) {
@@ -108,7 +113,7 @@ namespace KEUtils.About {
         /// </summary>
         /// <param name="assembly">The Assembly to use.</param>
         /// <returns>The copyright.</returns>
-        public string getAssemblyCopyright(Assembly assembly) {
+        public static string getAssemblyCopyright(Assembly assembly) {
             object[] attributes = assembly.
                 GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
             if (attributes.Length == 0) {
@@ -122,7 +127,7 @@ namespace KEUtils.About {
         /// </summary>
         /// <param name="assembly">The Assembly to use.</param>
         /// <returns>The company.</returns>
-        public string getAssemblyCompany(Assembly assembly) {
+        public static string getAssemblyCompany(Assembly assembly) {
             object[] attributes = assembly.
                 GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
             if (attributes.Length == 0) {

@@ -68,7 +68,7 @@ namespace Utils_Demo {
             } catch (Exception ex) {
                 Utils.excMsg("Failed to get AbutBox image", ex);
             }
-            AboutBox dlg = new AboutBox("About Utils Demo", image, assembly);
+            AboutBox dlg = new AboutBox(image, assembly);
             dlg.ShowDialog();
         }
 

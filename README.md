@@ -30,9 +30,9 @@ designed to use information such as ProductName, Version, Copyright, CompanyName
         try { 
             image = Image.FromFile(@".\Help\UtilsDemo.256x256.png");
         } catch (Exception ex) { 
-            Utils.excMsg("Failed to get AbutBox image", ex);
+            Utils.excMsg("Failed to get AboutBox image", ex);
         }
-        AboutBox dlg = new AboutBox("About Utils Demo", image, assembly);  
+        AboutBox dlg = new AboutBox(image, assembly);  
         dlg.ShowDialog();
 
 ## ScrolledTextDialog
