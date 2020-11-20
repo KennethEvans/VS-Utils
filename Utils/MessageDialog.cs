@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Net.Configuration;
 using System.Windows.Forms;
 
 namespace KEUtils.Message {
@@ -112,9 +111,7 @@ namespace KEUtils.Message {
             this.DialogResult = DialogResult.None;
 
             // Resize the Form
-            if (size != null) {
                 this.Size = size;
-            }
         }
 
         public MessageDialog(Size size) : this(size, "") {

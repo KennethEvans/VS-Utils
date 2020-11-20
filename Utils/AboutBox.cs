@@ -68,7 +68,7 @@ namespace KEUtils.About {
                 }
             }
             return System.IO.Path.
-                GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+                GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().Location);
         }
 
         /// <summary>

@@ -49,20 +49,20 @@
             this.flowLayoutPanelButtons1.Controls.Add(this.button1);
             this.flowLayoutPanelButtons1.Controls.Add(this.button2);
             this.flowLayoutPanelButtons1.Controls.Add(this.button3);
-            this.flowLayoutPanelButtons1.Location = new System.Drawing.Point(66, 60);
-            this.flowLayoutPanelButtons1.Margin = new System.Windows.Forms.Padding(6);
+            this.flowLayoutPanelButtons1.Location = new System.Drawing.Point(72, 72);
+            this.flowLayoutPanelButtons1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.flowLayoutPanelButtons1.Name = "flowLayoutPanelButtons1";
-            this.flowLayoutPanelButtons1.Size = new System.Drawing.Size(486, 57);
+            this.flowLayoutPanelButtons1.Size = new System.Drawing.Size(513, 83);
             this.flowLayoutPanelButtons1.TabIndex = 5;
             this.flowLayoutPanelButtons1.WrapContents = false;
             // 
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.Location = new System.Drawing.Point(6, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Location = new System.Drawing.Point(6, 8);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 45);
+            this.button1.Size = new System.Drawing.Size(159, 67);
             this.button1.TabIndex = 3;
             this.button1.Text = "Button 1";
             this.button1.UseVisualStyleBackColor = true;
@@ -71,10 +71,10 @@
             // button2
             // 
             this.button2.AutoSize = true;
-            this.button2.Location = new System.Drawing.Point(168, 6);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
+            this.button2.Location = new System.Drawing.Point(177, 8);
+            this.button2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 45);
+            this.button2.Size = new System.Drawing.Size(159, 67);
             this.button2.TabIndex = 4;
             this.button2.Text = "Button 2";
             this.button2.UseVisualStyleBackColor = true;
@@ -83,10 +83,10 @@
             // button3
             // 
             this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(330, 6);
-            this.button3.Margin = new System.Windows.Forms.Padding(6);
+            this.button3.Location = new System.Drawing.Point(348, 8);
+            this.button3.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 45);
+            this.button3.Size = new System.Drawing.Size(159, 67);
             this.button3.TabIndex = 2;
             this.button3.Text = "Button 3";
             this.button3.UseVisualStyleBackColor = true;
@@ -105,21 +105,22 @@
             this.tableLayoutPanelTop.Controls.Add(this.flowLayoutPanelButtons1, 0, 1);
             this.tableLayoutPanelTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanelTop.Name = "tableLayoutPanelTop";
             this.tableLayoutPanelTop.RowCount = 3;
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelTop.Size = new System.Drawing.Size(618, 123);
+            this.tableLayoutPanelTop.Size = new System.Drawing.Size(657, 163);
             this.tableLayoutPanelTop.TabIndex = 2;
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBox.Location = new System.Drawing.Point(11, 13);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(11, 13, 11, 13);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox.Size = new System.Drawing.Size(32, 28);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox.TabIndex = 3;
             this.pictureBox.TabStop = false;
@@ -132,11 +133,12 @@
             this.richTextBox.BackColor = System.Drawing.Color.White;
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox.ContextMenuStrip = this.contextMenuStrip;
-            this.richTextBox.Location = new System.Drawing.Point(55, 3);
+            this.richTextBox.Location = new System.Drawing.Point(57, 4);
+            this.richTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ReadOnly = true;
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBox.Size = new System.Drawing.Size(560, 48);
+            this.richTextBox.Size = new System.Drawing.Size(597, 56);
             this.richTextBox.TabIndex = 7;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.OnRichTextBoxLinkClicked);
@@ -158,12 +160,13 @@
             // 
             // MessageDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(618, 123);
+            this.ClientSize = new System.Drawing.Size(657, 163);
             this.Controls.Add(this.tableLayoutPanelTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MessageDialog";
             this.ShowIcon = false;
             this.Text = "MessageDialog";

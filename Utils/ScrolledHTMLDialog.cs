@@ -18,9 +18,7 @@ namespace KEUtils.ScrolledHTML {
             }
 
             // Resize the Form
-            if (size != null) {
-                this.Size = size;
-            }
+            this.Size = size;
 
             if (String.IsNullOrEmpty(htmlFile)) {
                 Utils.Utils.errMsg("HTML file is invalid");

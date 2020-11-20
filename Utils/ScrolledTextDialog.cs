@@ -15,9 +15,7 @@ namespace KEUtils.ScrolledText {
             this.DialogResult = DialogResult.None;
 
             // Resize the Form
-            if (size != null) {
-                this.Size = size;
-            }
+            this.Size = size;
         }
 
         public ScrolledTextDialog(Size size) : this(size, "") { }
