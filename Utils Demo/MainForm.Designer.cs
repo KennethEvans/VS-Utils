@@ -52,6 +52,7 @@
             this.buttonMessageLonger = new System.Windows.Forms.Button();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonQuit = new System.Windows.Forms.Button();
+            this.buttonInput = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanelButtons.SuspendLayout();
@@ -164,6 +165,7 @@
             this.tableLayoutPanelButtons.Controls.Add(this.buttonAbortRetryIgnore, 1, 5);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLong, 1, 4);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLonger, 2, 4);
+            this.tableLayoutPanelButtons.Controls.Add(this.buttonInput, 2, 2);
             this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 63);
             this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
@@ -458,6 +460,20 @@
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.OnFileQuitClick);
             // 
+            // buttonInput
+            // 
+            this.buttonInput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonInput.AutoSize = true;
+            this.buttonInput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonInput.Location = new System.Drawing.Point(874, 94);
+            this.buttonInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonInput.Name = "buttonInput";
+            this.buttonInput.Size = new System.Drawing.Size(170, 42);
+            this.buttonInput.TabIndex = 20;
+            this.buttonInput.Text = "InputDialog";
+            this.buttonInput.UseVisualStyleBackColor = true;
+            this.buttonInput.Click += new System.EventHandler(this.OnInputDialogClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -510,6 +526,7 @@
         private System.Windows.Forms.Button buttonMessageLong;
         private System.Windows.Forms.Button buttonMessageLonger;
         private System.Windows.Forms.Button buttonConfirm;
+        private System.Windows.Forms.Button buttonInput;
     }
 }
 

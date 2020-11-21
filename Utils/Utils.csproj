@@ -25,4 +25,13 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="AboutBox.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="InputDialog.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>

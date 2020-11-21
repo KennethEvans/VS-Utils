@@ -1,6 +1,7 @@
 ﻿//#define SHOW_ITEM_CLICKED
 
 using KEUtils.About;
+using KEUtils.InputDialog;
 using KEUtils.Message;
 using KEUtils.ScrolledHTML;
 using KEUtils.ScrolledText;
@@ -105,7 +106,20 @@ namespace Utils_Demo {
 #if SHOW_ITEM_CLICKED || true
             Utils.infoMsg(res + " clicked");
 #endif
+        }
 
+        private void OnInputDialogClick(object sender, EventArgs e) {
+            string msg = "What is your favorite color?";
+            InputDialog dlg = new InputDialog("Color Chooser", msg, "Red");
+            DialogResult res = dlg.ShowDialog();
+            if (res == DialogResult.OK) {
+                string val = dlg.Value;
+                if (val != null) {
+#if SHOW_ITEM_CLICKED || true
+                    Utils.infoMsg("Your favorite color is " + val);
+#endif
+                }
+            }
         }
 
         private void OnScrolledTextClickModelessClick(object sender, EventArgs e) {
@@ -242,6 +256,5 @@ namespace Utils_Demo {
             Utils.infoMsg( res + " clicked");
 #endif
         }
-
     }
 }
