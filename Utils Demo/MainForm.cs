@@ -38,7 +38,7 @@ namespace Utils_Demo {
 
         private static ScrolledHTMLDialog overviewDlg;
         private static ScrolledTextDialog scrolledText;
-
+        private static ScrolledHTMLDialog scrolledHTML;
 
         public MainForm() {
             InitializeComponent();
@@ -106,6 +106,19 @@ namespace Utils_Demo {
 #if SHOW_ITEM_CLICKED || true
             Utils.infoMsg(res + " clicked");
 #endif
+        }
+
+        private void OnScrolledHTMLClick(object sender, EventArgs e) {
+            // Create, show, or set visible the overview dialog as appropriate
+            if (scrolledHTML == null) {
+                MainForm app = (MainForm)FindForm().FindForm();
+                overviewDlg = new ScrolledHTMLDialog(
+                    Utils.getDpiAdjustedSize(app, new Size(800, 600)),
+                    "Example Scrolled HTML", @"Help\Overview.html");
+                overviewDlg.Show();
+            } else {
+                overviewDlg.Visible = true;
+            }
         }
 
         private void OnInputDialogClick(object sender, EventArgs e) {
