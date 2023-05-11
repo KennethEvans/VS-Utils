@@ -112,12 +112,12 @@ namespace Utils_Demo {
             // Create, show, or set visible the overview dialog as appropriate
             if (scrolledHTML == null) {
                 MainForm app = (MainForm)FindForm().FindForm();
-                overviewDlg = new ScrolledHTMLDialog(
-                    Utils.getDpiAdjustedSize(app, new Size(800, 600)),
-                    "Example Scrolled HTML", @"Help\Overview.html");
-                overviewDlg.Show();
+                Size size = Utils.getDpiAdjustedSize(app, new Size(800, 600));
+                scrolledHTML = new ScrolledHTMLDialog(
+                    size, "Example Scrolled HTML", @"Help\Overview.html");
+                scrolledHTML.Show();
             } else {
-                overviewDlg.Visible = true;
+                scrolledHTML.Visible = true;
             }
         }
 

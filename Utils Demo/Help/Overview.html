@@ -24,6 +24,8 @@
 </ul>
 <p>This is the exception dialog. The others are similar. </p>
 <p align="center"><img src="ExcMsgScreenshot.png" alt="Exception Dialog Screenshot" width="60%" /></p>
+<h3 align="left">Requirements</h3>
+<p align="left">As of Version 2.1.0.0 of Utils, the <a href="#ScrolledHTMLDialog">ScrolledHTMLDialog</a> is using Microsoft's WebView2, which does not depend on old Internet Explorer technology (no longer supported on some web sites). However you now need to to add the NuGet <a href="https://www.nuget.org/packages/Microsoft.Web.WebView2">Microsoft.Web.WebView2</a> package to your project if you use ScrolledHTMLDialog.</p>
 <h3>InputDialog</h3>
 <p>This is a class that provides an Input dialog. You can choose the dialog title, the prompt, and optionally the initial value. The value is returned as a string. </p>
 <p align="center"><img src="InputDialogScreenshot.png" alt="Input Dialog Screenshot" width="30%" /></p>
@@ -85,9 +87,9 @@
         Utils.infoMsg(&quot;You clicked Cancel&quot;);
     }
 </pre>
-<h3>ScrolledHtmlDialog</h3>
-<p>This is a dialog that displays an HTMLweb page as would be used for an Overview item on the Help menu.
-The dialog is a simple web browser with Back and Forward buttons. It can follow links. </p>
+<h3><a name="ScrolledHTMLDialog">ScrolledHtmlDialog</a></h3>
+<p>This is a dialog that displays an HTML web page as would be used for an Overview item on the Help menu.
+The dialog is a simple web browser with Back and Forward buttons. It can follow links. As of Version 2.1.0.0 of Utils, you must include the NuGet package <a href="https://www.nuget.org/packages/Microsoft.Web.WebView2">Microsoft.Web.WebView2</a>. </p>
 <p><strong>Usage Example</strong></p>
 <p>It is assumed there is a folder named Help in the bin directory which has files Overview.html
 as well as images, CSS, and other items as needed by Overview.html. </p>

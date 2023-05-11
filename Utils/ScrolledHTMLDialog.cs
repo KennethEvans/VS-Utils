@@ -12,6 +12,8 @@ namespace KEUtils.ScrolledHTML {
         /// <param name="htmlFile">The HTML file to use.</param>
         public ScrolledHTMLDialog(Size size, string title, string htmlFile) {
             InitializeComponent();
+            // This is not necessary if use webView2.Source =
+            //InitializeAsync();
 
             if (!String.IsNullOrEmpty(title)) {
                 this.Text = title;
@@ -28,9 +30,14 @@ namespace KEUtils.ScrolledHTML {
             // Add the HTML
             string appDir = System.IO.Path.GetDirectoryName(
             System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
-            webBrowser.Url = new Uri(System.IO.Path.Combine(appDir, htmlFile));
-
+            if (appDir != null) {
+                webView.Source = new Uri(System.IO.Path.Combine(appDir, htmlFile));
+            }
         }
+
+        //async void InitializeAsync() {
+        //    await webView.EnsureCoreWebView2Async(null);
+        //}
 
         private void OnFormClosing(object sender, FormClosingEventArgs e) {
             // Just hide rather than close if the user did it
@@ -41,11 +48,11 @@ namespace KEUtils.ScrolledHTML {
         }
 
         private void OnButtonBackClick(object sender, EventArgs e) {
-            webBrowser.GoBack();
+            webView.GoBack();
         }
 
         private void OnButtonForwardClick(object sender, EventArgs e) {
-            webBrowser.GoForward();
+            webView.GoForward();
         }
 
         private void OnButtonCancelClick(object sender, EventArgs e) {

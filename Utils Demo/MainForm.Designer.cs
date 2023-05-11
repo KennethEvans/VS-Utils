@@ -55,7 +55,6 @@
             this.buttonInput = new System.Windows.Forms.Button();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonQuit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanelTop.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanelButtons.SuspendLayout();
@@ -93,7 +92,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1163, 60);
+            this.menuStrip1.Size = new System.Drawing.Size(1163, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -103,7 +102,7 @@
             this.toolStripSeparator2,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(87, 56);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(87, 45);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // toolStripSeparator2
@@ -124,7 +123,7 @@
             this.overviewToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(104, 56);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(104, 45);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // overviewToolStripMenuItem
@@ -170,7 +169,7 @@
             this.tableLayoutPanelButtons.Controls.Add(this.buttonMessageLonger, 2, 4);
             this.tableLayoutPanelButtons.Controls.Add(this.buttonInput, 2, 2);
             this.tableLayoutPanelButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 63);
+            this.tableLayoutPanelButtons.Location = new System.Drawing.Point(3, 52);
             this.tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             this.tableLayoutPanelButtons.RowCount = 7;
             this.tableLayoutPanelButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -469,10 +468,10 @@
             this.flowLayoutPanelButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanelButtons.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanelButtons.Controls.Add(this.buttonQuit);
-            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(540, 400);
+            this.flowLayoutPanelButtons.Location = new System.Drawing.Point(540, 389);
             this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(3, 10, 3, 2);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
-            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(83, 46);
+            this.flowLayoutPanelButtons.Size = new System.Drawing.Size(83, 52);
             this.flowLayoutPanelButtons.TabIndex = 0;
             this.flowLayoutPanelButtons.WrapContents = false;
             // 
@@ -490,21 +489,11 @@
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.OnFileQuitClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 443);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanelTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -555,7 +544,6 @@
         private System.Windows.Forms.Button buttonConfirm;
         private System.Windows.Forms.Button buttonInput;
         private System.Windows.Forms.Button buttonScrolledHTML;
-        private System.Windows.Forms.Button button1;
     }
 }
 
