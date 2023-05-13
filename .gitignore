@@ -8,6 +8,7 @@
 
 # Temporary
 Utils 1.0/**
+Utils/Archive/**
 
 # User-specific files
 *.rsuser

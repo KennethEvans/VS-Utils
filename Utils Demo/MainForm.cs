@@ -4,6 +4,7 @@ using KEUtils.About;
 using KEUtils.InputDialog;
 using KEUtils.Message;
 using KEUtils.ScrolledHTML;
+using KEUtils.ScrolledHTML2;
 using KEUtils.ScrolledText;
 using KEUtils.Utils;
 using System;
@@ -36,9 +37,10 @@ namespace Utils_Demo {
             " " + LONG_STRING + " " + LONG_STRING + " " + LONG_STRING +
             " " + LONG_STRING;
 
-        private static ScrolledHTMLDialog overviewDlg;
+        private static ScrolledHTMLDialog2 overviewDlg;
         private static ScrolledTextDialog scrolledText;
         private static ScrolledHTMLDialog scrolledHTML;
+        private static ScrolledHTMLDialog2 scrolledHTML2;
 
         public MainForm() {
             InitializeComponent();
@@ -52,7 +54,7 @@ namespace Utils_Demo {
             // Create, show, or set visible the overview dialog as appropriate
             if (overviewDlg == null) {
                 MainForm app = (MainForm)FindForm().FindForm();
-                overviewDlg = new ScrolledHTMLDialog(
+                overviewDlg = new ScrolledHTMLDialog2(
                     Utils.getDpiAdjustedSize(app, new Size(800, 600)),
                     "Overview", @"Help\Overview.html");
                 overviewDlg.Show();
@@ -110,14 +112,29 @@ namespace Utils_Demo {
 
         private void OnScrolledHTMLClick(object sender, EventArgs e) {
             // Create, show, or set visible the overview dialog as appropriate
-            if (scrolledHTML == null) {
-                MainForm app = (MainForm)FindForm().FindForm();
-                Size size = Utils.getDpiAdjustedSize(app, new Size(800, 600));
-                scrolledHTML = new ScrolledHTMLDialog(
-                    size, "Example Scrolled HTML", @"Help\Overview.html");
-                scrolledHTML.Show();
+            bool useScrolledHTML2 = true;
+            if (useScrolledHTML2) {
+                if (scrolledHTML2 == null) {
+                    MainForm app = (MainForm)FindForm().FindForm();
+                    Size size = Utils.getDpiAdjustedSize(app, new Size(800, 600));
+                    //string html = @"Help\Overview.html";
+                    string html = "https://microsoft.com";
+                    bool useApprDir = false;
+                    scrolledHTML2 = new ScrolledHTMLDialog2(
+                        size, "Example Scrolled HTML", html, useApprDir);
+                    scrolledHTML2.Show();
+                } else {
+                    scrolledHTML2.Visible = true;
+                }
             } else {
-                scrolledHTML.Visible = true;
+                if (scrolledHTML == null) {
+                    MainForm app = (MainForm)FindForm().FindForm();
+                    Size size = Utils.getDpiAdjustedSize(app, new Size(800, 600));
+                    //string html = @"Help\Overview.html";
+                    scrolledHTML = new ScrolledHTMLDialog(
+                        size, "Example Scrolled HTML", @"Help\Overview.html");
+                    scrolledHTML.Show();
+                }
             }
         }
 

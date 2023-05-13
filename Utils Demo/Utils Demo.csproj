@@ -62,8 +62,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utils, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Utils">
       <HintPath>..\Utils\bin\Release\net48\Utils.dll</HintPath>
     </Reference>
   </ItemGroup>
