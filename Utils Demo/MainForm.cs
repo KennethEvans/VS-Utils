@@ -37,7 +37,7 @@ namespace Utils_Demo {
             " " + LONG_STRING + " " + LONG_STRING + " " + LONG_STRING +
             " " + LONG_STRING;
 
-        private static ScrolledHTMLDialog2 overviewDlg;
+        private static ScrolledHTMLDialog overviewDlg;
         private static ScrolledTextDialog scrolledText;
         private static ScrolledHTMLDialog scrolledHTML;
         private static ScrolledHTMLDialog2 scrolledHTML2;
@@ -54,7 +54,7 @@ namespace Utils_Demo {
             // Create, show, or set visible the overview dialog as appropriate
             if (overviewDlg == null) {
                 MainForm app = (MainForm)FindForm().FindForm();
-                overviewDlg = new ScrolledHTMLDialog2(
+                overviewDlg = new ScrolledHTMLDialog(
                     Utils.getDpiAdjustedSize(app, new Size(800, 600)),
                     "Overview", @"Help\Overview.html");
                 overviewDlg.Show();
@@ -112,21 +112,23 @@ namespace Utils_Demo {
 
         private void OnScrolledHTMLClick(object sender, EventArgs e) {
             // Create, show, or set visible the overview dialog as appropriate
-            bool useScrolledHTML2 = true;
-            if (useScrolledHTML2) {
-                if (scrolledHTML2 == null) {
-                    MainForm app = (MainForm)FindForm().FindForm();
+#if true
+            // Use WebView version
+            if (scrolledHTML2 == null) {
+                MainForm app = (MainForm)FindForm().FindForm();
                     Size size = Utils.getDpiAdjustedSize(app, new Size(800, 600));
-                    //string html = @"Help\Overview.html";
-                    string html = "https://microsoft.com";
-                    bool useApprDir = false;
+                    //string html = "https://microsoft.com";
+                    //bool useAppDir = false;
+                    string html = @"Help\Overview.html";
+                    bool useAppDir = true;
                     scrolledHTML2 = new ScrolledHTMLDialog2(
-                        size, "Example Scrolled HTML", html, useApprDir);
+                    size, "Example Scrolled HTML", html, useAppDir);
                     scrolledHTML2.Show();
                 } else {
                     scrolledHTML2.Visible = true;
                 }
-            } else {
+#else
+                // Use WebBrowser version
                 if (scrolledHTML == null) {
                     MainForm app = (MainForm)FindForm().FindForm();
                     Size size = Utils.getDpiAdjustedSize(app, new Size(800, 600));
@@ -136,6 +138,7 @@ namespace Utils_Demo {
                     scrolledHTML.Show();
                 }
             }
+#endif
         }
 
         private void OnInputDialogClick(object sender, EventArgs e) {

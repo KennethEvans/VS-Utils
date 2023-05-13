@@ -7,26 +7,22 @@
 </head>
 <body>
 <h1 align="center"><strong><img src="UtilsDemo.256x256.png" alt="Logo" width="96" height="96" align="middle" /> Utils Overview</strong></h1>
-<p align="left">The main purpose of Utils is to supply a C# class library of several  utilities that may be useful in Windows Forms applications. These include info, warning, error, and exception dialogs, and a C# replacement for MessageBox, which is a native application. These utilities are described below. The class library has versions for .NET 5 and for  .NET Framework 4.7. Utils.dll is found in one of the bin/Release directories. Use the version appropriate to the Target Framework you are using in your application by adding it as a reference for your project. The utilities are described below. </p>
+<p align="left">The main purpose of Utils is to supply a C# class library of several  utilities that may be useful in Windows Forms applications. These include info, warning, error, and exception dialogs, and a C# replacement for MessageBox, which is a native application. These utilities are described below. The class library has versions for .NET 6 and for  .NET Framework 4.8. Utils.dll is found in one of the bin/Release directories. Use the version appropriate to the Target Framework you are using in your application by adding it as a reference for your project. The utilities are described below. </p>
 <p align="left">There is also an application, Utils Demo, to demonstrate some of the utilities and let you see how they work. </p>
 <h2 align="left">Utils Demo</h2>
 <p>This is a screen shot of the Utils Demo interface. There are buttons to demonstrate and test the various utilities. </p>
 <p align="center"><img src="UtilsDemoScreenshot.png" alt="Utils Demo Screenshot" width="50%" /></p>
 <h2>Utils Class Library</h2>
-<h3>Utils</h3>
-<p>This class primarily provides error handling by bringing up an appropriate dialog.</p>
-<p> It includes: </p>
+<h3>Error Handling </h3>
+<p>Error handling is done by several dialogs.</p>
 <ul><li>void infoMsg(string msg)</li>
-  <li>void warmMsg(string msg)</li>
+  <li>void warnMsg(string msg)</li>
   <li>void errMsg(string msg)</li>
   <li>void excMsg(string msg, Exception ex)</li>
-  <li>Size getDpiAdjustedSize(Form form, Size size)</li>
 </ul>
-<p>This is the exception dialog. The others are similar. </p>
+<p>This is the exception dialog. The other error handling dialogs are similar. </p>
 <p align="center"><img src="ExcMsgScreenshot.png" alt="Exception Dialog Screenshot" width="60%" /></p>
-<h3 align="left">Requirements</h3>
-<p align="left">As of Version 2.1.0.0 of Utils, the <a href="#ScrolledHTMLDialog">ScrolledHTMLDialog</a> is using Microsoft's WebView2, which does not depend on old Internet Explorer technology (no longer supported on some web sites). However you now need to to add the NuGet <a href="https://www.nuget.org/packages/Microsoft.Web.WebView2">Microsoft.Web.WebView2</a> package to your project if you use ScrolledHTMLDialog.</p>
-<h3>InputDialog</h3>
+<h3 align="left">InputDialog</h3>
 <p>This is a class that provides an Input dialog. You can choose the dialog title, the prompt, and optionally the initial value. The value is returned as a string. </p>
 <p align="center"><img src="InputDialogScreenshot.png" alt="Input Dialog Screenshot" width="30%" /></p>
 <p><strong>Usage example:</strong> </p>
@@ -73,7 +69,7 @@
     scrolledText.appendTextAndNL(NL + &quot;OnScrolledTextClick &quot; + now);
     scrolledText.Visible = true; 
 </pre>
-<p><strong>Modal Example </strong></p>
+<p><strong>Modal Example</strong></p>
 <pre>
     string msg = "Some information;
     ScrolledTextDialog dlg = new ScrolledTextDialog(
@@ -87,22 +83,25 @@
         Utils.infoMsg(&quot;You clicked Cancel&quot;);
     }
 </pre>
-<h3><a name="ScrolledHTMLDialog">ScrolledHtmlDialog</a></h3>
-<p>This is a dialog that displays an HTML web page as would be used for an Overview item on the Help menu.
-The dialog is a simple web browser with Back and Forward buttons. It can follow links. As of Version 2.1.0.0 of Utils, you must include the NuGet package <a href="https://www.nuget.org/packages/Microsoft.Web.WebView2">Microsoft.Web.WebView2</a>. </p>
+<h3><strong>ScrolledHTMLDialog</strong></h3>
+<p>ScrolledHTMLDialog was designed for use as a Help package as in Help | Overview. </p>
+<p>As of Version 2.1.0.0 of Utils, there are two versions of ScrolledHTMLDialog, ScrolledHTML and ScrolledHTMLDialog2. ScrolledHTHLDialog uses WebBrower, which uses Internet Explorer technology, which is no longer supported on some web sites. ScrolledHTMLDialog2 uses Microsoft's WebView2, which is newer. However you need to to add the NuGet <a href="https://www.nuget.org/packages/Microsoft.Web.WebView2">Microsoft.Web.WebView2</a> package to your project if you use ScrolledHTMLDialog2.</p>
+<p>Utils Demo shows the use of each. Overview on the Help menu is implemented with ScrolledHTMLDialog, and the Scrolled HTML demo uses ScrolledHTMLDialog2, both using the same content. To see the difference go the end of the page where there is a link that does not work well with ScrolledHTMLDialog. </p>
+<p>With ScrolledHTMLDialog 2, you can also specify an arbitrary web address (e.g. https://microsoft.com) if you also specify the optional paramater useAppDir=false. (The default is useAppDir=true.) </p>
 <p><strong>Usage Example</strong></p>
 <p>It is assumed there is a folder named Help in the bin directory which has files Overview.html
 as well as images, CSS, and other items as needed by Overview.html. </p>
 <pre>
-    private static ScrolledHTMLDialog overviewDlg;
+    private static ScrolledHTMLDialog2 scrolledHTMLDlg2;
   
-    if (overviewDlg == null) {
+    if (scrolledHTMLDlg2 == null) {
+        scrolledHTMLDlg dlg = new ScrolledTextDialog(
         MainForm app = (MainForm)FindForm().FindForm();
-        Utils.getDpiAdjustedSize(app, new Size(800, 600)),
-        "Overview", @"Help\Overview.html");
-        overviewDlg.Show();
+            Utils.getDpiAdjustedSize(app, new Size(800, 600)),
+            "Overview", @"Help\Overview.html");
+        scrolledHTMLDlg2.Show();
     } else {
-        overviewDlg.Visible = true;
+        scrolledHTMLDlg2.Visible = true;
     }
 </pre>
 <h3>MessageDialog</h3>
